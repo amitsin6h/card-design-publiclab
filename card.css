@@ -50,8 +50,14 @@ h5 {
 }
 
 .card-title {
-    font-size: 12px;
+    font-size: 20px;
     line-height: 1.2857em;
+}
+
+.card-username {
+    clear: both;
+    margin-top: .5em;
+    color: rgba(0, 0, 0, .68);
 }
 
 .card-text {
@@ -59,6 +65,21 @@ h5 {
     margin-top: .5em;
     color: rgba(0, 0, 0, .68);
 }
+
+.fa-ellipsis-v {
+    transform: scale(1.1,1.1);
+}
+
+
+.social > ul#menu li {
+    display:inline;
+    padding-right: 20px;
+}
+
+.social > ul#menu li > .fa {
+    transform: scale(2.5,2.5);
+}
+
 
 .card-footer {
     font-size: 1em;
@@ -125,3 +146,72 @@ h5 {
 .meta a:hover {
     color: rgba(0, 0, 0, .87);
 }
+
+
+
+
+.info-box{display:block;min-height:90px;background:#fff;width:100%;box-shadow:0 1px 1px rgba(0,0,0,0.1);border-radius:2px;margin-bottom:15px}
+.info-box small{font-size:14px}.info-box .progress{background:rgba(0,0,0,0.2);margin:5px -10px 5px -10px;height:2px}
+.info-box .progress,.info-box .progress .progress-bar{border-radius:0}
+.info-box .progress .progress-bar{background:#fff}
+.info-box-icon{border-top-left-radius:2px;border-top-right-radius:0;border-bottom-right-radius:0;border-bottom-left-radius:2px;display:block;float:left;height:90px;width:90px;text-align:center;font-size:45px;line-height:90px;background:rgba(0,0,0,0.2)}
+.info-box-icon>img{max-width:100%}
+.info-box-content{padding:5px 10px;margin-left:90px}
+.info-box-number{display:block;font-weight:bold;font-size:18px}
+.progress-description,.info-box-text{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.info-box-text{text-transform:uppercase}
+.info-box-more{display:block}.progress-description{margin:0}.timeline{position:relative;margin:0 0 30px 0;padding:0;list-style:none}
+.bg-aqua{
+    background-color: #00c0ef !important;
+}
+
+
+
+
+
+
+.activity-box small{font-size:14px}
+.activity-box .progress{background:rgba(0,0,0,0.2);margin:5px -10px 5px -10px;height:2px}
+.activity-box .progress,.activity-box .progress .progress-bar{border-radius:0}
+.activity-box .progress .progress-bar{background:#fff}
+.activity-box-img{border-top-left-radius:2px;
+	border-top-right-radius:0;
+	border-bottom-right-radius:0;
+	border-bottom-left-radius:2px;
+	display:block;
+	float:left;
+	height:150px;
+	width:210px;
+	text-align:center;
+	font-size:45px;
+	line-height:90px;
+	background:rgba(0,0,0,0.2)
+}
+
+.activity-box-img>img{
+	max-width:100%
+}
+.activity-box-content{
+	padding:5px 10px;
+	margin-left:90px
+}
+.activity-box-number{
+	display:block;
+	font-weight:bold;
+	font-size:18px
+}
+
+.progress-description,.activity-box-text{
+	display:block;
+	font-size:14px;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis
+}
+
+.activity-box-text{text-transform:uppercase}
+.activity-box-more{display:block}.progress-description{margin:0}.timeline{position:relative;margin:0 0 30px 0;padding:0;list-style:none}
+.bg-aqua{
+    background-color: #00c0ef !important;
+}
+
