@@ -99,8 +99,11 @@ h5 {
 
 .profile {
     position: absolute;
+  
+}
+
+.profile-avatar {
     top: -12px;
-    display: inline-block;
     overflow: hidden;
     box-sizing: border-box;
     width: 25px;
@@ -110,23 +113,24 @@ h5 {
     border-radius: 50%;
 }
 
-.profile-avatar {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
+.user-detail{
+	padding-left: 10%;
+	color: rgba(0, 0, 0, .68);
 }
 
 .profile-inline {
     position: relative;
     top: 0;
-    display: inline-block;
 }
 
 .profile-inline ~ .card-title {
     display: inline-block;
     margin-left: 4px;
     vertical-align: top;
+}
+
+.badge-size{
+	padding: 5px 10px 5px 10px;
 }
 
 .text-bold {
