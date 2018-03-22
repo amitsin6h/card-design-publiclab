@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" >
+	<link rel="stylesheet" href="card.css">
+	<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
+	<title>Card UI/UX | Public Lab</title>
+	<style class="cp-pen-styles">
+
+	input, textarea {
+		outline: none;
+		border: none;
+		display: block;
+		margin: 0;
+		padding: 0;
+		-webkit-font-smoothing: antialiased;
+		font-family: "PT Sans", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+		font-size: 1rem;
+		color: #555f77;
+	}
+	input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+		color: #2c2c2c;
+	}
+	input::-moz-placeholder, textarea::-moz-placeholder {
+		color: #2c2c2c;
+	}
+	input:-moz-placeholder, textarea:-moz-placeholder {
+		color: #2c2c2c;
+	}
+	input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+		color: #2c2c2c;
+	}
+
+	p {
+		line-height: 1.3125rem;
+	}
+
+	.comments {
+		margin: 2.5rem auto 0;
+		max-width: 60.75rem;
+		padding: 0 1.25rem;
+		padding-top: 20px;
+		padding-bottom: 10px;
+		color: #2c2c2c; 
+		background-color: #f0f2fa;
+
+	}
+
+	.comment-wrap {
+		margin-bottom: 1.25rem;
+		display: table;
+		width: 100%;
+		min-height: 5.3125rem;
+	}
+
+	.photo {
+		padding-top: 0.625rem;
+		display: table-cell;
+		width: 3.5rem;
+	}
+	.photo .avatar {
+		height: 2.25rem;
+		width: 2.25rem;
+		border-radius: 50%;
+		background-size: contain;
+	}
+
+	.comment-block {
+		padding: 1rem;
+		background-color: #fff;
+		display: table-cell;
+		vertical-align: top;
+		border-radius: 0.1875rem;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+	}
+	.comment-block textarea {
+		width: 100%;
+		resize: none;
+	}
+
+	.comment-text {
+		margin-bottom: 1.25rem;
+	}
+
+	.bottom-comment {
+		color: #acb4c2;
+		font-size: 0.875rem;
+	}
+
+	.comment-date {
+		float: left;
+	}
+
+	.comment-actions {
+		float: right;
+	}
+	.comment-actions li {
+		display: inline;
+		margin: -2px;
+		cursor: pointer;
+	}
+	.comment-actions li.complain {
+		padding-right: 0.75rem;
+		border-right: 1px solid #e1e5eb;
+	}
+	.comment-actions li.reply {
+		padding-left: 0.75rem;
+		padding-right: 0.125rem;
+	}
+	.comment-actions li:hover {
+		color: #0095ff;
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+		<h1 style="text-align: center;">Card UI/UX Public Lab</h1>
+		<h2 style="text-align: center;">Questions and Answers Design</h2>
+
+
+		<div class="row">
+			<div class="col-md-3">
+				<img src="https://screenshotscdn.firefoxusercontent.com/images/425f161e-df1d-465a-bed7-d2bca2d894a3.png" alt="">
+			</div>
+
+			<div class="col-md-9">
+				<div class="card card-inverse card-info">
+					<img src="https://screenshotscdn.firefoxusercontent.com/images/671c1a8e-7932-48b5-8d39-d08eba398feb.png" alt="" height="600" width="800">
+				</div>
+
+				<hr>
+
+				<div class="card card-inverse card-info">
+					<img src="https://screenshotscdn.firefoxusercontent.com/images/b95e916d-e4d3-433e-846a-de22b93b1666.png" alt="" height="300" width="850">
+				</div>
+
+				<div class="row" style="margin-top: 25px;">
+					<div class="col-md-12">
+						<p style="font-weight: normal; font-size: 20px;">1 Comments</p>
+						<div class="card card-inverse card-info">
+
+							<!-- <img class="card-img-top" src="http://success-at-work.com/wp-content/uploads/2015/04/free-stock-photos.gif"> --> 
+							<div class="card-block">
+								<div class="profile profile-inline">
+									<img src="user.png" class="profile-avatar float-left" alt="">
+									<p class="user-detail" style="margin-left: -45px;">Ag8n answered 3 days ago</p>
+								</div>
+								<div class="card-text">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam.
+								</div>
+							</div>
+							<div class="card-footer">
+								<img src="https://screenshotscdn.firefoxusercontent.com/images/6d2e6cc1-9701-499b-9522-93a827d6ad1e.png" alt="">
+							</div>
+
+							<div class="comments">
+								<div class="comment-wrap">
+									<div class="photo">
+										<div class="avatar" style="background-image: url('user.png')"></div>
+									</div>
+									<div >
+										<form action="">
+											<textarea name="" id="" cols="75" rows="2" placeholder="Leav a comment"></textarea>
+											<button class="btn btn-info float-right btn-sm" style="padding-top: -10px; margin-top: -30px;">Submit</button>
+										</form>
+									</div>
+								</div>
+
+								<div class="comment-wrap">
+									<div class="photo">
+										<div class="avatar" style="background-image: url('user.png')"></div>
+									</div>
+									<div class="comment-block">
+										<div class="bottom-comment">
+											<div class="comment-date">warren commented about 15 hours ago</div>
+										</div>
+										<br>
+										<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. </p>
+									</div>
+								</div>
+
+								<div class="comment-wrap">
+									<div class="photo">
+										<div class="avatar" style="background-image: url('user.png')"></div>
+									</div>
+									<div class="comment-block">
+										<div class="bottom-comment">
+											<div class="comment-date">warren commented about 15 hours ago</div>
+										</div>
+										<br>
+										<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam.</p>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+
+
+
+					</div>
+				</div>
+
+
+
+
+
+
+
+
+
+
+
+
+				<div class="row" style="margin-top: 45px;">
+					<div class="col-md-12">
+						<p style="font-weight: normal; font-size: 20px;">1 Answers</p>
+						
+					<div class="card card-inverse card-info comments">
+						<div class="">
+							<div class="comment-wrap">
+								<div class="photo">
+									<div class="avatar" style="background-image: url('user.png')"></div>
+								</div>
+								<div >
+									<form action="">
+										<textarea name="" id="" cols="78" rows="2" placeholder="Leav a comment"></textarea>
+										<button class="btn btn-info float-right btn-sm" style="padding-top: -10px; margin-top: -30px;">Submit</button>
+									</form>
+								</div>
+							</div>
+
+							<div class="comment-wrap">
+								<div class="photo">
+									<div class="avatar" style="background-image: url('user.png')"></div>
+								</div>
+								<div class="comment-block">
+									<div class="bottom-comment">
+										<div class="comment-date">warren commented about 15 hours ago</div>
+									</div>
+									<br>
+									<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. </p>
+								</div>
+							</div>
+
+							<div class="comment-wrap">
+								<div class="photo">
+									<div class="avatar" style="background-image: url('user.png')"></div>
+								</div>
+								<div class="comment-block">
+									<div class="bottom-comment">
+										<div class="comment-date">warren commented about 15 hours ago</div>
+									</div>
+									<br>
+									<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+<br>
+<br>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
