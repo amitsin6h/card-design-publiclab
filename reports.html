@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiring Summary Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --background: 0 0% 100%;
+            --foreground: 222.2 84% 4.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 222.2 84% 4.9%;
+            --primary: 221.2 83.2% 53.3%;
+            --primary-foreground: 210 40% 98%;
+            --secondary: 210 40% 96.1%;
+            --secondary-foreground: 222.2 47.4% 11.2%;
+            --muted: 210 40% 96.1%;
+            --muted-foreground: 215.4 16.3% 46.9%;
+            --accent: 210 40% 96.1%;
+            --border: 214.3 31.8% 91.4%;
+            --ring: 221.2 83.2% 53.3%;
+            --success: 142.1 76.2% 36.3%;
+            --success-light: 142.1 70.6% 45.3%;
+            --warning: 47.9 95.8% 53.1%;
+            --purple: 262.1 83.3% 57.8%;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: hsl(var(--secondary));
+            color: hsl(var(--foreground));
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .menu-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .menu-icon span {
+            width: 100%;
+            height: 2px;
+            background-color: hsl(var(--foreground));
+            border-radius: 2px;
+        }
+
+        .title-section h1 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: hsl(var(--foreground));
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 0.375rem;
+            border: 1px solid hsl(var(--border));
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background-color: hsl(var(--accent));
+        }
+
+        .btn-primary {
+            background-color: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            border-color: hsl(var(--primary));
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Select */
+        .select {
+            padding: 0.5rem 2rem 0.5rem 1rem;
+            font-size: 0.875rem;
+            border-radius: 0.375rem;
+            border: 1px solid hsl(var(--border));
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Card */
+        .card {
+            background-color: hsl(var(--card));
+            border: 1px solid hsl(var(--border));
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid hsl(var(--border));
+        }
+
+        .card-title {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: hsl(var(--muted-foreground));
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .grid-cols-3 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .grid-cols-2 {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+
+        /* Stats Card */
+        .stat-value {
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 1;
+            margin: 0.75rem 0 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stat-change {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: hsl(var(--success));
+            background-color: hsl(142.1 76.2% 36.3% / 0.1);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+
+        .stat-description {
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+            line-height: 1.4;
+        }
+
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: hsl(var(--primary) / 0.1);
+        }
+
+        .stat-icon.success {
+            background-color: hsl(var(--success) / 0.1);
+        }
+
+        .stat-icon.purple {
+            background-color: hsl(var(--purple) / 0.1);
+        }
+
+        .stat-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: hsl(var(--foreground));
+        }
+
+        .progress-value {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: hsl(var(--foreground));
+        }
+
+        .progress-bar {
+            height: 8px;
+            background-color: hsl(var(--secondary));
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 9999px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-fill.blue {
+            background-color: hsl(var(--primary));
+        }
+
+        .progress-fill.green {
+            background-color: hsl(var(--success));
+        }
+
+        .progress-fill.purple {
+            background-color: hsl(var(--purple));
+        }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .legend-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.blue {
+            background-color: hsl(var(--primary));
+        }
+
+        .legend-dot.green {
+            background-color: hsl(var(--success));
+        }
+
+        .legend-dot.purple {
+            background-color: hsl(var(--purple));
+        }
+
+        /* Result Breakdown */
+        .result-breakdown {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .result-circle {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .circle-chart {
+            transform: rotate(-90deg);
+        }
+
+        .circle-bg {
+            fill: none;
+            stroke: hsl(var(--secondary));
+            stroke-width: 20;
+        }
+
+        .circle-progress {
+            fill: none;
+            stroke: hsl(var(--success));
+            stroke-width: 20;
+            stroke-linecap: round;
+            stroke-dasharray: 440;
+            stroke-dashoffset: 132;
+            transition: stroke-dashoffset 0.3s ease;
+        }
+
+        .circle-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .circle-percentage {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+            color: hsl(var(--foreground));
+        }
+
+        .circle-label {
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+            margin-top: 0.25rem;
+        }
+
+        .result-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .result-stat {
+            text-align: center;
+        }
+
+        .result-stat-label {
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+        }
+
+        .result-stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 0.25rem;
+        }
+
+        /* Summary Stats */
+        .summary-stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 2rem 0;
+        }
+
+        .summary-stat {
+            text-align: center;
+        }
+
+        .summary-stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: hsl(var(--foreground));
+        }
+
+        .summary-stat-label {
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+            margin-top: 0.5rem;
+        }
+
+        .summary-stat-sublabel {
+            font-size: 0.75rem;
+            color: hsl(var(--muted-foreground));
+        }
+
+        /* Insight Box */
+        .insight-box {
+            background-color: hsl(47.9 95.8% 53.1% / 0.1);
+            border: 1px solid hsl(47.9 95.8% 53.1% / 0.3);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .insight-icon {
+            width: 40px;
+            height: 40px;
+            background-color: hsl(47.9 95.8% 53.1%);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .insight-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
+        .insight-content h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: hsl(var(--foreground));
+        }
+
+        .insight-content p {
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .grid-cols-3,
+            .grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .result-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .summary-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+
+        .more-icon {
+            cursor: pointer;
+            padding: 0.25rem;
+        }
+
+        .more-icon:hover {
+            background-color: hsl(var(--accent));
+            border-radius: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="title-section">
+                    <h1>Hiring Summary Report</h1>
+                    <p class="subtitle">What happened in this hiring cycle?</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <select class="select">
+                    <option>Last 30 days</option>
+                    <option>Last 60 days</option>
+                    <option>Last 90 days</option>
+                    <option>Last year</option>
+                </select>
+                <button class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Export CSV
+                </button>
+            </div>
+        </header>
+
+        <!-- Top Stats Grid -->
+        <div class="grid grid-cols-3">
+            <!-- Total Candidates Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span>Total Candidates</span>
+                        <div class="more-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="1"></circle>
+                                <circle cx="12" cy="5" r="1"></circle>
+                                <circle cx="12" cy="19" r="1"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--primary))" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <div style="flex: 1;">
+                            <div class="stat-value">
+                                12
+                                <span class="stat-change">+83%</span>
+                            </div>
+                            <p class="stat-description">83% of candidates completed their assessments this period.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Candidates Passed Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span>Candidates Passed</span>
+                        <div class="more-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="1"></circle>
+                                <circle cx="12" cy="5" r="1"></circle>
+                                <circle cx="12" cy="19" r="1"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                        <div class="stat-icon success">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--success))" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                        </div>
+                        <div style="flex: 1;">
+                            <div class="stat-value">
+                                7
+                                <span class="stat-change">+70%</span>
+                            </div>
+                            <p class="stat-description">70% pass rate across all completed assessments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assessments Used Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span>Assessments Used</span>
+                        <div class="more-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="1"></circle>
+                                <circle cx="12" cy="5" r="1"></circle>
+                                <circle cx="12" cy="19" r="1"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                        <div class="stat-icon purple">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--purple))" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </div>
+                        <div style="flex: 1;">
+                            <div class="stat-value">
+                                3
+                            </div>
+                            <p class="stat-description">10 assessments completed by candidates.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Grid -->
+        <div class="grid grid-cols-2" style="margin-top: 1.5rem;">
+            <!-- Result Breakdown Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span style="font-weight: 600; color: hsl(var(--foreground)); font-size: 1rem; font-style: italic;">Result Breakdown</span>
+                        <div class="more-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="1"></circle>
+                                <circle cx="12" cy="5" r="1"></circle>
+                                <circle cx="12" cy="19" r="1"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="result-breakdown">
+                        <div class="result-circle">
+                            <svg class="circle-chart" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <circle class="circle-bg" cx="100" cy="100" r="70"></circle>
+                                <circle class="circle-progress" cx="100" cy="100" r="70"></circle>
+                            </svg>
+                            <div class="circle-text">
+                                <div class="circle-percentage">70%</div>
+                                <div class="circle-label">Pass Rate</div>
+                            </div>
+                        </div>
+                        <div class="result-stats">
+                            <div class="result-stat">
+                                <div class="result-stat-label">Passed</div>
+                                <div class="result-stat-value" style="color: hsl(var(--success));">7</div>
+                            </div>
+                            <div class="result-stat">
+                                <div class="result-stat-label">Failed</div>
+                                <div class="result-stat-value" style="color: hsl(var(--muted-foreground));">3</div>
+                            </div>
+                            <div class="result-stat">
+                                <div class="result-stat-label">Pending</div>
+                                <div class="result-stat-value" style="color: hsl(var(--warning));">2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hiring Statistics Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span>Hiring Statistics</span>
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="font-size: 0.875rem; color: hsl(var(--muted-foreground));">Last 30 days</span>
+                            <button class="btn" style="padding: 0.25rem 0.5rem; border: none;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="legend">
+                        <div class="legend-item">
+                            <span class="legend-dot blue"></span>
+                            <span>Invited</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot green"></span>
+                            <span>Completed</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot purple"></span>
+                            <span>Passed</span>
+                        </div>
+                    </div>
+
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span class="progress-label">Candidates Invited</span>
+                            <span class="progress-value">12</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill blue" style="width: 100%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span class="progress-label">Assessments Completed</span>
+                            <span class="progress-value">10</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill green" style="width: 83%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-container" style="margin-bottom: 0;">
+                        <div class="progress-header">
+                            <span class="progress-label">Candidates Passed</span>
+                            <span class="progress-value">7</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill purple" style="width: 58%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="summary-stats">
+                        <div class="summary-stat">
+                            <div class="summary-stat-value">12</div>
+                            <div class="summary-stat-label">Total Invited</div>
+                        </div>
+                        <div class="summary-stat">
+                            <div class="summary-stat-value">83%</div>
+                            <div class="summary-stat-label">Completion</div>
+                            <div class="summary-stat-sublabel">Rate</div>
+                        </div>
+                        <div class="summary-stat">
+                            <div class="summary-stat-value">70%</div>
+                            <div class="summary-stat-label">Pass Rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Insight Box -->
+        <div class="insight-box">
+            <div class="insight-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+            </div>
+            <div class="insight-content">
+                <h3>Key Hiring Insight</h3>
+                <p>Strong hiring cycle: 83% completion rate with 70% of candidates passing.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
